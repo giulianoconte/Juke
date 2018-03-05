@@ -9,7 +9,7 @@ I don't know what this game will be yet.
  
 ### Tutorial on how to contribute
 
-1. Follow steps 3, 8, 9, and 10 below
+1. Follow steps 3, 5, 8, 9, and 10 below
  
 ### Tutorial on how to create and host your own JavaScript game
 

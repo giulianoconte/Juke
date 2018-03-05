@@ -1,6 +1,6 @@
 # Juke
 
-I don't know what this game will be yet.
+[Play it online here](https://giulianoconte.github.io/Juke/). I don't know what this game will be yet.
 
 ### Resources for this project
 

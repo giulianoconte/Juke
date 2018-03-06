@@ -1,5 +1,5 @@
 /*
-Simple level logic
+Game
 */
 
 // input flags
@@ -9,40 +9,21 @@ let KEY_S = 0;
 let KEY_A = 0;
 let KEY_D = 0;
 let MOUSE_LEFT = 0;
-let MOUSE_RIGHT = 0;
 
-let circle;
+let square;
 
 function initialize() {
-    circle = createSprite(50, 50);
+    square = new GameObject(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, "triangleGreen1.png");
 }
 
-function getMouseInput() {
-    switch (MOUSE_LEFT) {
-        case 0:
-            if (mouseIsPressed) {
-                MOUSE_LEFT = 1;
-            }
-            break;
-        case 1:
-            if (mouseIsPressed) {
-                MOUSE_LEFT = 2;
-            } else {
-                MOUSE_LEFT = 0;
-            }
-            break;
-        case 2:
-            if (mouseIsPressed) {
-                MOUSE_LEFT = 2;
-            } else {
-                MOUSE_LEFT = 0;
-            }
-            break;
-    }
-}
-
-function getKeyInput() {
+function getInput() {
     KEY_W = 0; KEY_S = 0; KEY_A = 0; KEY_D = 0;
+    MOUSE_LEFT = 0;
+
+    if (mouseWentDown(LEFT))
+        MOUSE_LEFT = 1;
+    else if (mouseDown(LEFT))
+        MOUSE_LEFT = 2;
 
     if (keyWentDown("w") || keyWentDown("W"))
         KEY_W = 1;
@@ -65,30 +46,26 @@ function getKeyInput() {
         KEY_D = 2;
 }
 
-function getInput() {
-    getMouseInput();
-    getKeyInput();
-}
-
 function update() {
     if (KEY_W >= 1) {
-        circle.position.y -= 2;
+        square.position.y -= 2;
     }
     if (KEY_S >= 1) {
-        circle.position.y += 2;
+        square.position.y += 2;
     }
     if (KEY_A >= 1) {
-        circle.position.x -= 2;
+        square.position.x -= 2;
     }
     if (KEY_D >= 1) {
-        circle.position.x += 2;
+        square.position.x += 2;
     }
     if (MOUSE_LEFT == 1) {
-        circle.position.x = mouseX;
-        circle.position.y = mouseY;
+        square.position.x = mouseX;
+        square.position.y = mouseY;
     }
 }
 
 function render() {
+    square.orient();
     drawSprites();
 }

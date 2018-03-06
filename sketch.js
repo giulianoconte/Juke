@@ -2,8 +2,12 @@
 The engine
 */
 
+let LOCAL_BUILD = false;
+
 // the window where stuff is rendered
 let canvas;
+let WINDOW_WIDTH = 400
+let WINDOW_HEIGHT = 400
 
 // p5 function: preload() is called before page starts loading
 function preload() {
@@ -11,7 +15,7 @@ function preload() {
 
 // p5 function: setup() is called on page load
 function setup() {
-    canvas = createCanvas(400, 400);
+    canvas = createCanvas(WINDOW_WIDTH, WINDOW_HEIGHT);
     centerCanvas();
 
     initialize();

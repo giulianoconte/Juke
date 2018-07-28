@@ -48,16 +48,18 @@ function getInput() {
 
 function update() {
     if (KEY_W >= 1) {
-        square.position.y -= 2;
+        square.drive(-2);
     }
     if (KEY_S >= 1) {
-        square.position.y += 2;
+        square.drive(2);
     }
     if (KEY_A >= 1) {
-        square.position.x -= 2;
+        //square.position.x -= 2;
+        square.tilt(-2);
     }
     if (KEY_D >= 1) {
-        square.position.x += 2;
+        //square.position.x += 2;
+        square.tilt(2);
     }
     if (MOUSE_LEFT == 1) {
         square.position.x = mouseX;

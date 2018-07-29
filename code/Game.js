@@ -10,10 +10,17 @@ let KEY_A = 0;
 let KEY_D = 0;
 let MOUSE_LEFT = 0;
 
+// velocity of still objects on the road
+let roadVelocity;
+
 let square;
+let meteors;
 
 function initialize() {
+    roadVelocity = createVector(0, 9, 0);
+
     square = new GameObject(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, "Car.png");
+    meteors = [];
 }
 
 function getInput() {
@@ -62,12 +69,18 @@ function update() {
         square.tilt(2);
     }
     if (MOUSE_LEFT == 1) {
-        square.position.x = mouseX;
-        square.position.y = mouseY;
+        meteors.push(new Meteor(mouseX, mouseY, "MeteorShadow.png"));
+    }
+
+    for (let i = 0; i < meteors.length; i++) {
+        meteors[i].update();
     }
 }
 
 function render() {
     square.orient();
+    for (let i = 0; i < meteors.length; i++) {
+        meteors[i].orient();
+    }
     drawSprites();
 }

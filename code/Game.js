@@ -61,12 +61,18 @@ function update() {
         square.drive(2);
     }
     if (KEY_A >= 1) {
-        //square.position.x -= 2;
-        square.tilt(-2);
+        if(KEY_S >= 1) {
+            square.tilt(2);
+        } else {
+            square.tilt(-2);
+        }
     }
     if (KEY_D >= 1) {
-        //square.position.x += 2;
-        square.tilt(2);
+        if(KEY_S >= 1) {
+            square.tilt(-2);
+        } else {
+            square.tilt(2);
+        }
     }
     if (MOUSE_LEFT == 1) {
         meteors.push(new Meteor(mouseX, mouseY, "MeteorShadow.png"));

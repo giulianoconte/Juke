@@ -5,26 +5,31 @@ function getResource(fileName) {
     return loadImage(path + fileName);
 }
 
-function GameObject(x, y, imageName) {
-    this.s = createSprite(-666, -666);
-    this.s.addImage(getResource(imageName));
-    this.position = createVector(x, y);
-    this.rotation = 0;
-    this.offset = createVector(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
+class GameObject {
+    constructor(x, y, imageName) {
+        this.s = createSprite(-666, -666);
+        this.s.addImage(getResource(imageName));
+        this.position = createVector(x, y);
+        this.rotation = 0;
+        this.offset = createVector(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
 
-    this.init = function() {
+        this.init();
+        this.orient();
+    }
+
+    init() {
         this.s.position.x = this.position.x;
         this.s.position.y = this.position.y;
     }
 
-    this.orient = function() {
+    orient() {
         this.s.position = this.position;
         this.s.rotation = this.rotation;
     }
 
     // Function to drive forwards and backwards
     // Parameters: speed (number) - Positive = forward / Negative = backwards
-    this.drive = function(speed) {
+    drive(speed) {
         // Convert the rotational degrees into radians
         let radianRotation = this.rotation / 57.2958;
 
@@ -39,10 +44,7 @@ function GameObject(x, y, imageName) {
 
     // Change the rotation of our sprite
     // Parameters: degrees (number) - Positive = tilt degree CW / Negative = tilt degrees CCW
-    this.tilt = function(degrees) {
+    tilt(degrees) {
         this.rotation += degrees;
     }
-
-    this.init();
-    this.orient();
 }

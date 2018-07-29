@@ -13,7 +13,7 @@ let MOUSE_LEFT = 0;
 let square;
 
 function initialize() {
-    square = new GameObject(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, "triangleGreen1.png");
+    square = new GameObject(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, "Car.png");
 }
 
 function getInput() {

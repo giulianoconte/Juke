@@ -74,6 +74,7 @@ function update() {
             square.tilt(2);
         }
     }
+
     if (MOUSE_LEFT == 1) {
         meteors.push(new Meteor(mouseX, mouseY, "MeteorShadow.png"));
     }

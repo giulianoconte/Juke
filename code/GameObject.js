@@ -62,11 +62,12 @@ class Meteor extends GameObject {
         // -z means below the surface
         this.position.z = 5;
 
+        let fallSpeed = -0.04;
         let randomX = Math.random() - 0.5;
         let randomY = Math.random() - 0.5;
         randomX *= 1.8;
         randomY *= 1.8;
-        this.velocity = createVector(randomX, randomY, -0.04);
+        this.velocity = createVector(randomX, randomY, fallSpeed);
 
         let randomRotation = Math.random() - 0.5;
         randomRotation *= 10;
@@ -75,7 +76,7 @@ class Meteor extends GameObject {
 
     update() {
         if (this.position.z < 0.0) {
-            this.position.z = 0.0;
+            this.position.z = 0.0; // Still on the surface (z = 0.0) but isn't below it so it won't trigger this branch every frame and render a new sprite
             this.velocity = roadVelocity;
             this.rotationVelocity = 0;
             this.s = createSprite();
